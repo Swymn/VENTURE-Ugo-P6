@@ -7,7 +7,7 @@ on:
     branches: [ "develop" ]
 
 jobs:
-  testing-backend:
+  test-and-build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -50,7 +50,6 @@ jobs:
             back/target/failsafe-reports/
           retention-days: 30
 
-      - name: Update dependency graph
-        uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
-        with:
-          directory: back
+      - name: Security vulnerability check
+        run: mvn org.owasp:dependency-check-maven:check --file back/pom.xml
+        continue-on-error: true
