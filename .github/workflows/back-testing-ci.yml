@@ -7,12 +7,13 @@ on:
     branches: [ "develop" ]
 
 jobs:
-  test-and-build:
+  testing-backend:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       actions: read
       checks: write
+      security-events: write
 
     steps:
       - name: Checkout code
