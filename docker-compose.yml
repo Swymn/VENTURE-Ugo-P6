@@ -1,0 +1,20 @@
+services:
+  database:
+    image: mysql:8
+    container_name: mdd_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mdd_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./resources/mysql:/var/lib/mysql
+      - ./resources/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - mdd_network
+
+networks:
+  mdd_network:
+    driver: bridge

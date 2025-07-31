@@ -1,0 +1,10 @@
+### IntelliJ ####
+*.idea/
+*.iml
+
+### Resources ###
+resources/mysql
+
+### Build ###
+build/
+target/
