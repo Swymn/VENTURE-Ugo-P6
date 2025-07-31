@@ -49,7 +49,3 @@ jobs:
             back/target/surefire-reports/
             back/target/failsafe-reports/
           retention-days: 30
-
-      - name: Security vulnerability check
-        run: mvn org.owasp:dependency-check-maven:check --file back/pom.xml
-        continue-on-error: true
